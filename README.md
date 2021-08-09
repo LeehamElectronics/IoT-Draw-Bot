@@ -7,7 +7,7 @@ The physical build was made as a 3D model and printed on a FlashForge 3D Printer
 
 ### 💻 Software Overview
 Built with Visual Micro in Visual Studio 2019, libraries used are ArduinoFirebase, ESP8266 Community, WifiManager, PubSubClient, and the Arduino library.
-Over 600 lines of code in main .INO file. You can also find the electrical schematics and 3D print STL files in this repository (built with ProDesktop 8.0)
+The main c++ program can be found in the .ino file. The website files such as the html and javascript file can be found in the web-server folder. You can also find the electrical schematics and 3D print STL files in this repository (built with ProDesktop 8.0)
 
 ### 🤔 Current Status
 I originally built this project when I was pretty inexperienced at software development, therefore the original program was written horribly. The code that you will find in this current repository is a re-write of what I originally wrote back in 2019. At the time of writing (9-08-2021) the current main branch is not yet functional as I am making the transition from using Firebase to MQTT for this project, however, you can still successfully compile the code on to a Espressif board such as a Wemos D1 Mini, it just won't really do anything. If you would like to see the TERRIBLE (yet functional) original software I wrote for this back in 2019, you can view it [here](https://pastebin.com/9us41h7V)

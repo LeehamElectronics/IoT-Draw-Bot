@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+ 
+   <title>DrawBot</title>
+   
+    <!-- Load the Firebase base library before loading the body. -->
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase.js"></script>
+	
+  </head>
+  <body onload="view(); date()">
+    <!-- Load the application script, which will save data to our Firebase app. -->
+    <script src="mainScript.js"></script>
+	
+	<script type="text/javascript"> 
+	        var movementVal
+            var age 
+			var testvar
+        function getParam(name)
+        {  
+            name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");  
+            var regexS = "[\\?&]"+name+"=([^&#]*)";  
+            var regex = new RegExp( regexS );  
+            var results = regex.exec(window.location.href);
+            if(results == null)
+                return "";  
+            else    
+                return results[1];
+        }
+       function getUrlData()
+       {
+             movementVal = getParam("movementVal");
+             age = getParam("age");
+			 //window.alert(uid);
+			  if (movementVal == 'forward'){
+	           forward()
+	           }
+			    if (movementVal == 'back'){
+	           back()
+	           }
+			    if (movementVal == 'left'){
+	           left()
+	           }
+			    if (movementVal == 'right'){
+	           right()
+	           }
+			    if (movementVal == 'stop'){
+	           stop()
+	           }
+			   
+			   FEFBVal.on('value', snap => testvar = (snap.val()));
+			document.getElementById("sliderFE").innerHTML = testvar;
+			   
+			   view()
+     
+       }
+	    
+	 
+</script>
+
+ <center>
+   <h2> In case you ever forget the date... </h2>
+      <form>
+	  <br><br>
+	  <input type="button" onclick="date()" value="Tell me" />
+	
+	   <div id="myDIV2">
+	   <p>
+	   Wowo the Robot should now be drawing! Congratz...
+	   </p>
+	   </div>
+	    <br><br>
+	  <input type="button" onclick="view()" value="Manual Control" />
+	  
+	  <div id="myDIV">
+  
+
+
+
+	    <h3> Bot Drive </h5>
+	   <input type="button" onclick="left()" value="LEFT" />
+         <input type="button" onclick="forward()" value="Forward" />
+		  <input type="button" onclick="right()" value="RIGHT" />
+		  <br><br>
+		  <input type="button" onclick="back()" value="BACK" />
+		  <br><br>
+			 <input type="button" onclick="stop()" value="STOP" />
+			 <br><br>
+			  <h3>  Pen Control </h3>
+				    <input type="button" onclick="raisePen()" value="Raise Pen" />
+					 <input type="button" onclick="lowerPen()" value="Lower Pen" />
+      </form>
+	
+
+  <br><br>
+   
+
+
+	   <h3> Key Controls: </h5>
+	   <p>
+	   Forward / back / left / right: Arrow Keys
+	   <br><br>
+	   Stop: Enter Key
+	   <br><br>
+	   Raise Pen: 2
+	   Lower Pen: 1
+	   
+	       <h3> All software and hardware designed and created by Liam Price 2019 </h3>
+		 <h3> LinkedIn:  www.linkedin.com/in/liamisprice/</h3>
+		   <h3> Youtube: www.youtube.com/channel/UCiBew_QQnG5jUlY5C1-NCqw</h3>
+		   <h3> GitHub: https://github.com/LeehamElectronics</h3>
+	   
+	  </center>
+	  </div>
+	  
+	   <script>
+         <!--
+		 var value=0;
+		 var value2=0;
+		 var ledtogglebutton=0;
+		 var ledonoffbutton=0;
+		 
+		  function view() {  
+			   
+  var x = document.getElementById("myDIV");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+			   
+            }
+		 
+            function forward() {  
+			   movement.set({
+               "tank": 1,
+            });
+            }
+			
+			 function back() {  
+			   movement.set({
+               "tank": 2,
+            });
+            }
+			
+			 function left() {  
+			   movement.set({
+               "tank": 3,
+            });
+            }
+			
+			 function right() {  
+			   movement.set({
+               "tank": 4,
+            });
+            }
+			
+			 function stop() {  
+			   movement.set({
+               "tank": 0,
+            });
+			}
+			
+			 function raisePen() {  
+			   movement.set({
+               "tank": 5,
+            });
+            }
+			
+			 function lowerPen() {  
+			   movement.set({
+               "tank": 6,
+            });
+            }
+			function returnVal() {
+			movement.set({
+               "tank": 10,
+            });	
+			}
+			
+			function calibrate() {
+			movement.set({
+               "tank": 13,
+            });	
+			}
+			
+			function date() {
+			 var x = document.getElementById("myDIV2");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+			
+			movement.set({
+               "tank": 30,
+            });	
+			setTimeout(function() { returnVal(); }, 2000);
+			}
+			
+			function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+        }
+			function updateTextInput2(val) {
+          document.getElementById('textInput2').value=val; 
+        }
+			function updateTextInputRE(val) {
+          document.getElementById('textInputRE').value=val; 
+        }
+			function updateTextInputFE(val) {
+          document.getElementById('textInputFE').value=val; 
+		     FEFBVal.on('value', snap => testvar = (snap.val()));
+			document.getElementById("FEInput").innerHTML = testvar;
+        }
+		function updateStringInput(val) {
+          document.getElementById('textInput3').value=val; 
+        }
+  
+ function setDownAngle() {
+  var servoAngleDown = parseInt(document.getElementById("servoDownAngle").value);
+	pencilDown.set({
+               servoAngle: servoAngleDown,
+            });
+			movement.set({
+               "tank": 11,
+            });	
+}
+function setUpAngle() {
+  var servoAngleUp = parseInt(document.getElementById("servoUpAngle").value);
+	pencilUp.set({
+               servoAngle: servoAngleUp,
+            });
+			movement.set({
+               "tank": 12,
+            });	
+}
+function setRE() {
+  var RE = parseFloat(document.getElementById("sliderRE").value);
+	REFBVal.set({    <!-- RE firebase value setting command -->
+               REVal: RE,  <!-- REVal is the name of the variable being set in the firebase database, and the value it will be equal to is the RE variable. -->   
+            });
+			movement.set({
+               "tank": 20,
+            });	
+}
+function setFE() {
+  var FE = parseFloat(document.getElementById("sliderFE").value);
+	FEFBVal.set({
+               FEVal: FE,
+            });
+			movement.set({
+               "tank": 21,
+            });	
+}
+function sendLetters() {
+  var lettersVal = (document.getElementById("textInput3").value);
+  
+	letterEntry.set({
+               letters: lettersVal,
+			   })
+    
+  movement.set({
+               "tank": 9,
+            });	
+			setTimeout(function() { returnVal(); }, 5000);
+			  
+			
+			
+}
+
+
+         //-->
+      </script>
+	
+		
+		
+		
+		 <script>document.onkeydown = function(e) {
+      if (e.repeat) { return }
+      e = e || window.event;
+      if (e.keyCode == '38') { forward(); }
+      else if (e.keyCode == '40') { back(); }
+      else if (e.keyCode == '37') { left();} 
+      else if (e.keyCode == '39') { right(); } //right
+      else if (e.keyCode == '13') { stop(); } //stop
+      else if (e.keyCode == '50') { raisePen(); }
+      else if (e.keyCode == '49') { lowerPen(); }
+  
+      else if (e.keyCode == '87') { 
+	        if (value2 == '50'){		  
+		crane1(); }
+		else {
+		crane11();
+		} 
+		} //w up
+      else if (e.keyCode == '83') { 
+	        if (value2 == '50'){		  
+		crane2(); }
+		else {
+		crane21();
+		} 
+		}
+      else if (e.keyCode == '65') { 
+	        if (value2 == '50'){		  
+		crane3(); }
+		else {
+		crane31(); 
+		} 
+		}
+      else if (e.keyCode == '68') { 
+	        if (value2 == '50'){		  
+		crane4(); }
+		else {
+		crane41();
+		} 
+		}
+      else if (e.keyCode == '88') { 
+	        if (value2 == '50'){		  
+		crane5(); }
+		else {
+		crane51(); 
+		} 
+		}
+      else if (e.keyCode == '69'){ 
+	        if (value2 == '50'){		  
+		crane6(); }
+		else {
+		crane61(); 
+		} 
+		}
+      else if (e.keyCode == '67') { 
+	        if (value2 == '50'){		  
+		crane7(); }
+		else {
+		crane71(); 
+		} 
+		}
+      else if (e.keyCode == '82') { 
+	        if (value2 == '50'){		  
+		crane8();  }
+		else {
+		crane81();
+		} 
+		}
+	  
+	  else if (e.keyCode == '50') { speed(); }
+      else if (e.keyCode == '49') { slow(); }
+	  
+	    else if (e.keyCode == '76') {
+              if (value == '50'){		  
+		LEDOFF(); }
+		else {
+		LEDON();
+		} 
+		}
+	    else if (e.keyCode == '79') { 
+		if (value2 == '55') {
+		LEDTOGGLE(); }
+		else{
+		LEDTOGGLE2();
+		}
+		}
+	
+  
+   } 
+   </script>
+
+ 
+   <script>document.onkeyup = function(e) {
+       e = e || window.event;
+      if (e.keyCode == '38') { stop();  }
+       else if (e.keyCode == '40') {stop(); }
+       else if (e.keyCode == '37') { stop(); }
+      else if (e.keyCode == '39') { stop(); }
+   } </script>
+	
+  </body>
+</html>
+
+   
+     
+   
+  
+  

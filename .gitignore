@@ -3,6 +3,17 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+# Visual Micro crap:
+__vm/
+Release/
+Debug/
+DrawBot.sln
+DrawBot.vcxproj
+DrawBot.vcxproj.filters
+DrawBot.vcxproj.users
+CppProperties.json
+.vs/
+
 # User-specific files
 *.rsuser
 *.suo

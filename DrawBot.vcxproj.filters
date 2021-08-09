@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="DrawBot.ino" />
+    <None Include="..\..\..\..\Downloads\IoT-Draw-Bot-master\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.DrawBot.vsarduino.h">

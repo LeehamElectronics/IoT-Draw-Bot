@@ -17,6 +17,11 @@ First model: (2019 Wireless Charger)
 <p float="left">
   <img src="https://user-images.githubusercontent.com/51737378/128665286-de23d837-5022-4ab5-a613-64fb8ce3b997.JPG" width="320" />
    <img src="https://user-images.githubusercontent.com/51737378/128665290-6e51ac2a-56b4-4ccb-ad4c-40faae3dbd31.JPG" width="320" />
+   <img src="https://user-images.githubusercontent.com/51737378/128691948-b80edcfe-3967-469b-ba9c-4929d64bef6f.png" width="320" />
+   <img src="https://user-images.githubusercontent.com/51737378/128692017-f1cc4af6-696c-4309-980f-a65410fbace5.png" width="320" />
+  <img src="https://user-images.githubusercontent.com/51737378/128692606-4df3639e-9f50-41cd-8a7f-c388b0d18281.png" width="320" />
+  <img src="https://user-images.githubusercontent.com/51737378/128696378-f11e7eb8-1a4f-4bfd-8858-d32c4b7e8827.png" width="320" />
+
 </p>
 
 https://user-images.githubusercontent.com/51737378/128624825-71ae2798-04d4-4aa1-82b3-56bfeccb1233.mov
